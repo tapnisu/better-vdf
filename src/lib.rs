@@ -1,4 +1,4 @@
-//! Since none of the VDL implementations I tried on crates.io worked for my intended purposes, I wrote my own.
+//! Since none of the VDF implementations I tried on crates.io worked for my intended purposes, I wrote my own.
 //!
 //! Considering that this is a very badly documented data format, some data types (such as booleans) were implemented
 //! in a way that looks compatible with the format (much like an extension, in case it was not intended).
