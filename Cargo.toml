@@ -2,7 +2,7 @@
 name = "better-vdf"
 version = "0.1.0"
 edition = "2021"
-license-file = "LICENSE.txt"
+license-file = "LICENSE"
 description = "A VDF serialization file format using serde"
 repository = "https://github.com/MarkV43/better-vdf"
 readme = "README.md"
