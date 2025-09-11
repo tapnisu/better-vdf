@@ -30,7 +30,7 @@ where
     if deserializer
         .input
         .chars()
-        .filter(|&x| x != '\t' && x != '\n' && x != '\r')
+        .filter(|&x| x != '\t' && x != '\n' && x != '\r' && x != ' ')
         .count()
         == 0
     {
@@ -58,7 +58,7 @@ impl<'de> Deserializer<'de> {
     fn peek_real_char(&self) -> Result<char> {
         self.input
             .chars()
-            .find(|&x| x != '\t' && x != '\n' && x != '\r')
+            .find(|&x| x != '\t' && x != '\n' && x != '\r' && x != ' ')
             .ok_or(Error::Eof)
         // .or_else(|x| panic!("{x:?}"))
     }
@@ -66,7 +66,7 @@ impl<'de> Deserializer<'de> {
     fn next_real_char(&mut self) -> Result<char> {
         let mut ch = self.next_char()?;
 
-        while ch == '\t' || ch == '\n' || ch == '\r' {
+        while ch == '\t' || ch == '\n' || ch == '\r' || ch == ' ' {
             ch = self.next_char()?;
         }
 
