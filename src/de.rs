@@ -232,11 +232,11 @@ impl<'de, 'a> serde::de::Deserializer<'de> for &'a mut Deserializer<'de> {
         Err(Error::UnsupportedType)
     }
 
-    fn deserialize_option<V>(self, _visitor: V) -> std::prelude::v1::Result<V::Value, Self::Error>
+    fn deserialize_option<V>(self, visitor: V) -> std::prelude::v1::Result<V::Value, Self::Error>
     where
         V: serde::de::Visitor<'de>,
     {
-        Err(Error::UnsupportedType)
+        visitor.visit_some(self)
     }
 
     fn deserialize_unit<V>(self, _visitor: V) -> std::prelude::v1::Result<V::Value, Self::Error>
