@@ -94,7 +94,7 @@ impl<'a> serde::ser::Serializer for &'a mut Serializer {
     }
 
     fn serialize_none(self) -> std::prelude::v1::Result<Self::Ok, Self::Error> {
-        Err(Error::UnsupportedType)
+        Ok(())
     }
 
     fn serialize_some<T: ?Sized>(self, value: &T) -> std::prelude::v1::Result<Self::Ok, Self::Error>
